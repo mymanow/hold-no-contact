@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@import "@fontsource-variable/atkinson-hyperlegible-next";
+@import "@fontsource-variable/fraunces";
+@import "./tokens.css";
+
+/* Composants de base partagés. Les valeurs viennent toutes des tokens (design/tokens.json). */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill px-5 font-semibold text-sm transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60;
+    min-height: 44px;
+  }
+  .btn-lg {
+    min-height: 52px;
+    @apply px-6 text-base;
+  }
+  .btn-primary {
+    @apply bg-accent text-on-accent hover:bg-accent-strong;
+  }
+  .btn-secondary {
+    @apply border border-border-input bg-surface-raised text-text hover:bg-surface;
+  }
+  .btn-ghost {
+    @apply text-text-muted hover:bg-surface-raised hover:text-text;
+  }
+  .field {
+    @apply block w-full rounded-md border border-border-input bg-surface px-4 text-base text-text placeholder:text-text-subtle focus:border-focus focus:outline-none;
+    min-height: 48px;
+  }
+  textarea.field {
+    @apply py-3;
+  }
+  .label {
+    @apply mb-2 block text-sm font-semibold text-text;
+  }
+  .kicker {
+    @apply text-xs font-semibold tracking-[0.08em] text-text-muted uppercase;
+  }
+  .card {
+    @apply rounded-lg border border-border bg-surface;
+  }
+  .page {
+    @apply mx-auto w-full px-4 pt-6 pb-36 lg:px-8 lg:pt-10 lg:pb-12;
+    max-width: calc(var(--content-max) + 4rem);
+  }
+}
+
+.counter {
+  font-family: var(--font-display);
+  font-size: var(--counter-size);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.halo {
+  box-shadow: var(--shadow-panic-glow);
+  animation: halo 6s var(--ease-calm) infinite;
+}
+@keyframes halo {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 6px rgb(255 122 89 / 0.16),
+      0 10px 32px rgb(255 122 89 / 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px rgb(255 122 89 / 0.1),
+      0 10px 40px rgb(255 122 89 / 0.4);
+  }
+}
+
+.breath {
+  animation: breathe 14s var(--ease-calm) infinite;
+}
+@keyframes breathe {
+  0% {
+    transform: scale(0.78);
+  }
+  28.5%,
+  57% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.78);
+  }
+}

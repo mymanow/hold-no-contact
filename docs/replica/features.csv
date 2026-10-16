@@ -1,0 +1,40 @@
+feature,area,priority,original,clone,notes
+Compteur de jours de no contact,home,must,yes,no,cœur du produit
+Onboarding questionnaire sur la rupture,onboarding,must,yes,no,forme exacte inconnue - à vérifier sur l'app
+Règles et durée de no contact personnalisées,onboarding,must,yes,no,ajouté v1.0.23
+Check-in quotidien (humeur envies déclencheurs),check-in,must,yes,no,refondu v1.0.33
+Bouton panique en un tap (Panic Room),urges,must,yes,no,argument central
+Exercice de respiration guidé dans la Panic Room,urges,must,yes,no,Reality Check v1.0.4
+Faux chat Text Your Ex (But Don't) - message intercepté jamais envoyé,urges,must,yes,no,aucun accès contacts/SMS
+Reset & Reflect après rechute avec historique conservé,relapse,must,yes,no,
+Abonnement avec essai gratuit,payments,must,yes,no,web : Stripe Checkout + Customer Portal (original : IAP hebdo à annuel)
+Coach IA Sam conversationnel personnalisé,coach,must,yes,no,streaming SSE ; garde-fous de crise obligatoires
+Mode de ton doux / cash (No-BS),coach,must,yes,no,
+Coach vocal,coach,could,yes,no,"AI Voice & Chat Coaching" sur pricing
+Evidence Vault (red flags dealbreakers),nostalgia,should,yes,no,
+Upload photos vidéos notes vocales captures dans le Vault,nostalgia,should,yes,no,stockage chiffré conseillé
+Ick List (red flags dealbreakers icks),nostalgia,must,yes,no,mode relecture plein écran
+Affirmations quotidiennes,content,should,yes,no,contenu à écrire soi-même
+Journal guidé,content,should,yes,no,
+Streak de check-ins,home,should,yes,no,reset mal vécu par certains users
+Notifications de rappel et de tâches,notifications,should,yes,no,web : Web Push (iOS seulement si PWA installée) + email en repli
+Toolkit de coping par besoin avec favoris,content,should,yes,no,v1.0.39
+Roadmap personnalisée par étape de guérison,home,should,yes,no,
+Insights hebdo et progression émotionnelle,home,should,yes,no,
+Thèmes visuels du faux chat,urges,could,yes,no,v1.0.28 skins - thèmes génériques à toi ; pas d'UI iMessage/WhatsApp
+Conversation Analyzer (captures et messages collés),tools,could,yes,no,vision + LLM - partie dure
+Challenges multi-sessions,content,could,yes,no,
+Bibliothèque Learn avec recommandations,content,could,yes,no,
+Sessions de visualisation audio,content,could,yes,no,
+Growth feed qui remplace les réseaux,content,could,yes,no,
+Abuse Awareness (manipulation contrôle coercitif),content,should,yes,no,à rédiger avec soin - liens vers ressources d'aide
+Communauté entre utilisateurs,community,skip,yes,skip,leur réseau n'est pas reconstructible ; modération lourde - à décider plus tard
+Contenus éditoriaux persona et textes de l'original,content,skip,yes,skip,à écrire soi-même - jamais copier
+Claims santé chiffrés non sourcés,marketing,skip,yes,skip,risque App Store et pub mensongère
+Web app responsive mobile et desktop,platform,must,no,no,spécifique au clone - bottom tabs mobile / sidebar desktop
+PWA installable avec raccourcis vers Panic et check-in,platform,should,no,no,spécifique au clone
+Panic Room et compteur disponibles hors ligne,platform,should,no,no,service worker
+Auth magic link ou Google,onboarding,must,yes,no,original : email
+Export et suppression de compte en libre-service,privacy,should,no,no,différenciation - l'original n'a pas de politique de confidentialité propre
+Verrou par code et mode discret,privacy,could,no,no,différenciation
+Multilingue FR EN,i18n,should,no,no,original en anglais seulement

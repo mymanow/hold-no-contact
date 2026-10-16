@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charte No Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0A0F13;--surface:#111920;--raised:#18232B;--sunken:#070B0E;--border:#24313A;--border-input:#5F717D;
+  --text:#E6EDF0;--muted:#A5B3BC;--subtle:#8494A0;
+  --accent:#5FD3A6;--accent-strong:#86E3BF;--on-accent:#04231A;--accent-soft:#10302A;
+  --panic:#FF7A59;--panic-strong:#FF9A80;--on-panic:#2A0A02;--panic-soft:#3A1810;
+  --record:#F2CC86;--focus:#9EE8CD;
+  --c-rf:#FF9A80;--c-rf-s:#331A14;--c-db:#FF9DB4;--c-db-s:#33161E;--c-ick:#F2C14E;--c-ick-s:#2E2614;--c-rs:#BBAEFF;--c-rs-s:#211D38;
+  --sans:'Atkinson Hyperlegible Next',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --display:'Fraunces',ui-serif,Georgia,serif;
+  --calm:cubic-bezier(.45,0,.25,1);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:400 17px/26px var(--sans);min-height:100dvh;padding:32px 16px 48px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto}
+.intro{margin-bottom:32px}
+.kicker{font:600 13px/18px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:600 34px/40px var(--display);margin:6px 0 8px}
+.lead{color:var(--muted);max-width:60ch}
+.stage{display:grid;grid-template-columns:390px 1fr;gap:32px;align-items:start}
+@media (max-width:980px){.stage{grid-template-columns:1fr}}
+.label{font:600 13px/18px var(--sans);color:var(--subtle);margin:0 0 10px 4px}
+
+/* ---------- phone */
+.phone{width:100%;max-width:390px;height:780px;border-radius:44px;border:1px solid var(--border);background:var(--bg);position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.p-header{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;margin-top:28px}
+.p-header b{font:600 17px var(--sans)}
+.pill{font:600 13px/1 var(--sans);color:var(--accent-strong);background:var(--accent-soft);padding:7px 11px;border-radius:999px}
+.p-body{padding:4px 16px 120px;height:calc(100% - 84px - 64px);overflow:auto}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:72px;background:var(--surface);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:8px}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:500 12px var(--sans);color:var(--muted);text-decoration:none}
+.tab svg{width:22px;height:22px}
+.tab[aria-current]{color:var(--accent)}
+.fab{position:absolute;right:16px;bottom:88px;width:64px;height:64px;border-radius:999px;background:var(--panic);color:var(--on-panic);display:grid;place-items:center;text-decoration:none;
+  box-shadow:0 0 0 6px rgba(255,122,89,.16),0 10px 32px rgba(255,122,89,.32);animation:halo 6s var(--calm) infinite}
+.fab svg{width:28px;height:28px}
+@keyframes halo{0%,100%{box-shadow:0 0 0 6px rgba(255,122,89,.16),0 10px 32px rgba(255,122,89,.30)}50%{box-shadow:0 0 0 12px rgba(255,122,89,.10),0 10px 40px rgba(255,122,89,.40)}}
+
+/* ---------- streak */
+.streak{background:var(--surface);border-radius:28px;padding:24px;box-shadow:0 0 0 1px rgba(95,211,166,.22),0 12px 40px rgba(95,211,166,.10)}
+.streak .num{font:600 clamp(72px,18vw,96px)/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums lining-nums;margin:6px 0 2px}
+.streak .sub{color:var(--muted);font-size:15px}
+.gauge{margin:20px 0 8px;display:flex;align-items:center;gap:12px}
+progress{appearance:none;flex:1;height:8px;border:0;border-radius:999px;background:var(--border);overflow:hidden}
+progress::-webkit-progress-bar{background:var(--border);border-radius:999px}
+progress::-webkit-progress-value{background:var(--accent);border-radius:999px}
+progress::-moz-progress-bar{background:var(--accent);border-radius:999px}
+.gauge span{font:600 13px var(--sans);color:var(--muted);font-variant-numeric:tabular-nums}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:15px;color:var(--muted)}
+.meta .rec{color:var(--record);font-weight:600}
+.next{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:15px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px}.next>*{white-space:nowrap}
+.next a{color:var(--muted);font-size:15px}
+.section-t{font:600 20px/28px var(--sans);margin:28px 4px 12px;display:flex;justify-content:space-between;align-items:baseline}
+.section-t a{font:500 15px var(--sans);color:var(--accent);text-decoration:none}
+
+/* ---------- ick cards */
+.icks{display:grid;gap:12px}
+.ick{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:16px 16px 14px 20px;overflow:hidden}
+.ick::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cat)}
+.ick .tag{display:inline-block;font:700 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--cat);background:var(--cat-s);padding:6px 9px;border-radius:999px}
+.ick .row{display:flex;justify-content:space-between;align-items:center;min-height:36px;margin-bottom:8px}
+.ick .acts{display:flex;gap:4px;color:var(--muted)}
+.ick .acts button{all:unset;width:36px;height:36px;display:grid;place-items:center;border-radius:10px;cursor:pointer}
+.ick .acts button:hover{background:var(--raised)}
+.ick .acts svg{width:18px;height:18px}
+.ick p{font-size:17px;line-height:26px}
+.ick small{display:block;margin-top:8px;font-size:13px;color:var(--subtle)}
+.rf{--cat:var(--c-rf);--cat-s:var(--c-rf-s)}.db{--cat:var(--c-db);--cat-s:var(--c-db-s)}.ik{--cat:var(--c-ick);--cat-s:var(--c-ick-s)}.rs{--cat:var(--c-rs);--cat-s:var(--c-rs-s)}
+
+/* ---------- desktop */
+.desk{border:1px solid var(--border);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:240px 1fr;min-height:780px;background:var(--bg);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+@media (max-width:700px){.desk{grid-template-columns:1fr}.side{display:none}}
+.side{background:var(--surface);border-right:1px solid var(--border);padding:20px 14px;display:flex;flex-direction:column}
+.brand{font:600 20px var(--display);padding:4px 10px 18px}
+.nav a{display:flex;align-items:center;gap:12px;height:44px;padding:0 12px;border-radius:12px;color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+.nav a svg{width:20px;height:20px}
+.nav a[aria-current]{background:var(--accent-soft);color:var(--accent-strong)}
+.nav a:hover:not([aria-current]){background:var(--raised);color:var(--text)}
+.mini{margin:16px 6px 0;padding:14px;background:var(--raised);border-radius:16px}
+.mini b{font:600 30px/1 var(--display);font-variant-numeric:tabular-nums}
+.mini span{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.panic-side{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;height:56px;border-radius:999px;background:var(--panic);color:var(--on-panic);font:700 16px var(--sans);text-decoration:none;box-shadow:0 0 0 6px rgba(255,122,89,.14),0 10px 30px rgba(255,122,89,.28)}
+.panic-side:hover{background:var(--panic-strong)}
+.panic-side svg{width:20px;height:20px}
+.kbd{font:600 12px var(--sans);border:1px solid rgba(42,10,2,.35);border-radius:6px;padding:2px 6px}
+.main{padding:32px;max-width:760px;width:100%;margin:0 auto}
+.main h2{font:700 26px/32px var(--display);margin-bottom:20px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:1100px){.cols{grid-template-columns:1fr}}
+
+/* ---------- panic room */
+.panicroom{margin-top:32px;background:var(--sunken);border:1px solid var(--border);border-radius:28px;padding:32px 20px;display:grid;justify-items:center;text-align:center;gap:18px}
+.breath{width:200px;height:200px;border-radius:999px;background:radial-gradient(circle at 50% 45%,var(--panic-strong),var(--panic) 62%);display:grid;place-items:center;color:var(--on-panic);font:600 22px var(--display);
+  box-shadow:0 0 0 18px rgba(255,122,89,.10),0 0 0 40px rgba(255,122,89,.05);animation:breathe 14s var(--calm) infinite;margin:36px 0 40px}
+@keyframes breathe{0%{transform:scale(.78)}28.5%{transform:scale(1)}57%{transform:scale(1)}100%{transform:scale(.78)}}
+.panicroom h3{font:600 34px/40px var(--display)}
+.panicroom p{color:var(--muted);max-width:40ch}
+.exits{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:999px;font:600 15px var(--sans);text-decoration:none;border:1px solid var(--border-input);color:var(--text);background:var(--raised)}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:transparent}
+.swatches{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sw{border-radius:14px;padding:12px;border:1px solid var(--border);background:var(--surface);font-size:13px;color:var(--muted)}
+.sw i{display:block;height:40px;border-radius:8px;margin-bottom:8px}
+.sw b{display:block;color:var(--text);font-weight:600}
+@media (prefers-reduced-motion:reduce){.fab,.breath{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="intro">
+    <div class="kicker">Design system · eau de nuit</div>
+    <h1>Bouton Panic, compteur de streak et Ick List</h1>
+    <p class="lead">Fond bleu-vert très sombre. Le jade signale la guérison et le progrès, la braise est réservée à l'urgence. Tous les textes passent WCAG AA, presque tous AAA.</p>
+  </header>
+
+  <div class="stage">
+    <section aria-label="Aperçu mobile">
+      <p class="label">Mobile · 390 px · tab bar + FAB</p>
+      <div class="phone">
+        <div class="p-header"><b>Accueil</b><span class="pill">Check-in du jour</span></div>
+        <div class="p-body">
+          <div class="streak" role="group" aria-label="47 jours sans contact, objectif 60, record 52">
+            <div class="kicker">Jour</div>
+            <div class="num">47</div>
+            <div class="sub">sans contact</div>
+            <div class="gauge"><progress value="47" max="60" aria-label="Progression vers l'objectif"></progress><span>47/60</span></div>
+            <div class="meta"><span class="rec">★ Record 52 j</span><span>∑ 118 j cumulés</span></div>
+            <div class="next"><span>Prochain palier : 60 j</span><a href="#">J'ai eu un contact</a></div>
+          </div>
+          <div class="section-t">Ick List <a href="#">Tout voir</a></div>
+          <div class="icks">
+            <article class="ick rf"><div class="row"><span class="tag">Red flag</span><div class="acts"><button aria-label="Désépingler"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3l5 5-3 1-4 4 1 5-2 2-4-4-5 5-1-1 5-5-4-4 2-2 5 1 4-4z"/></svg></button></div></div><p>Il annulait toujours à la dernière minute, et c'était ma faute.</p><small>ajouté il y a 3 j</small></article>
+            <article class="ick ik"><div class="row"><span class="tag">Ick</span><div class="acts"><button aria-label="Plus d'actions"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></div><p>Répondait « ok. » à tout ce qui comptait pour moi.</p><small>ajouté il y a 6 j</small></article>
+          </div>
+        </div>
+        <a class="fab" href="#panic" aria-label="J'ai besoin d'aide — ouvrir la Panic Room"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 7v6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="10"/></svg></a>
+        <nav class="tabbar" aria-label="Navigation">
+          <a class="tab" href="#" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1z"/></svg>Accueil</a>
+          <a class="tab" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Ick List</a>
+          <a class="tab" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg>Sam</a>
+          <a class="tab" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Outils</a>
+          <a class="tab" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>Profil</a>
+        </nav>
+      </div>
+    </section>
+
+    <section aria-label="Aperçu desktop">
+      <p class="label">Desktop · sidebar + contenu centré</p>
+      <div class="desk">
+        <aside class="side">
+          <div class="brand">No Contact</div>
+          <nav class="nav" aria-label="Navigation principale">
+            <a href="#" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1z"/></svg>Accueil</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Ick List</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg>Sam</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>Écrire sans envoyer</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>Profil</a>
+          </nav>
+          <div class="mini"><b>J47</b><span>record 52 j</span></div>
+          <a class="panic-side" href="#panic" title="Raccourci : P"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 7v6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="10"/></svg>J'ai besoin d'aide <span class="kbd">P</span></a>
+        </aside>
+        <main class="main">
+          <h2>Ick List</h2>
+          <div class="cols">
+            <article class="ick rf"><div class="row"><span class="tag">Red flag</span></div><p>Il annulait toujours à la dernière minute, et c'était ma faute.</p><small>épinglé</small></article>
+            <article class="ick db"><div class="row"><span class="tag">Dealbreaker</span></div><p>Ne voulait pas d'enfants, puis « on verra », puis plus jamais.</p><small>ajouté il y a 2 sem.</small></article>
+            <article class="ick ik"><div class="row"><span class="tag">Ick</span></div><p>Répondait « ok. » à tout ce qui comptait pour moi.</p><small>ajouté il y a 6 j</small></article>
+            <article class="ick rs"><div class="row"><span class="tag">Raison</span></div><p>Je dors enfin la nuit sans vérifier son statut.</p><small>ajouté hier</small></article>
+          </div>
+          <div class="panicroom" id="panic">
+            <div class="kicker">Panic Room</div>
+            <div class="breath" aria-hidden="true">Inspire…</div>
+            <h3>Ça va passer.</h3>
+            <p>Une envie dure rarement plus de quelques minutes. Respire avec le cercle, puis choisis une sortie.</p>
+            <div class="exits"><a class="btn" href="#">Relire mon Ick List</a><a class="btn" href="#">Écrire sans envoyer</a><a class="btn" href="#">Parler à Sam</a></div>
+            <a class="btn primary" href="#">J'ai tenu</a>
+          </div>
+        </main>
+      </div>
+    </section>
+  </div>
+
+  <div class="swatches" aria-label="Palette">
+    <div class="sw"><i style="background:#0A0F13;border:1px solid #24313A"></i><b>bg</b>#0A0F13</div>
+    <div class="sw"><i style="background:#111920;border:1px solid #24313A"></i><b>surface</b>#111920</div>
+    <div class="sw"><i style="background:#E6EDF0"></i><b>text</b>16,3:1 AAA</div>
+    <div class="sw"><i style="background:#A5B3BC"></i><b>text-muted</b>9,0:1 AAA</div>
+    <div class="sw"><i style="background:#5FD3A6"></i><b>accent · guérison</b>10,4:1</div>
+    <div class="sw"><i style="background:#FF7A59"></i><b>panic · urgence</b>on-panic 7,2:1</div>
+    <div class="sw"><i style="background:#F2CC86"></i><b>record</b>11,6:1</div>
+    <div class="sw"><i style="background:#BBAEFF"></i><b>cat-reason</b>8,2:1</div>
+  </div>
+</div>
+</body>
+</html>

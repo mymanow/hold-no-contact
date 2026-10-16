@@ -1,0 +1,113 @@
+/* Généré depuis design/tokens.json — ne pas éditer à la main. */
+/* Tailwind v4 : importé par src/app/globals.css */
+
+@theme {
+  --color-*: initial;
+  --color-bg: #0A0F13;
+  --color-surface: #111920;
+  --color-surface-raised: #18232B;
+  --color-surface-sunken: #070B0E;
+  --color-border: #24313A;
+  --color-border-input: #5F717D;
+  --color-text: #E6EDF0;
+  --color-text-muted: #A5B3BC;
+  --color-text-subtle: #8494A0;
+  --color-accent: #5FD3A6;
+  --color-accent-strong: #86E3BF;
+  --color-on-accent: #04231A;
+  --color-accent-soft: #10302A;
+  --color-panic: #FF7A59;
+  --color-panic-strong: #FF9A80;
+  --color-on-panic: #2A0A02;
+  --color-panic-soft: #3A1810;
+  --color-record: #F2CC86;
+  --color-danger: #FF8E8E;
+  --color-on-danger: #2B0606;
+  --color-warning: #F2C14E;
+  --color-focus: #9EE8CD;
+  --color-cat-red-flag: #FF9A80;
+  --color-cat-dealbreaker: #FF9DB4;
+  --color-cat-ick: #F2C14E;
+  --color-cat-reason: #BBAEFF;
+  --color-cat-red-flag-soft: #331A14;
+  --color-cat-dealbreaker-soft: #33161E;
+  --color-cat-ick-soft: #2E2614;
+  --color-cat-reason-soft: #211D38;
+
+  --font-sans: 'Atkinson Hyperlegible Next Variable', 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Fraunces Variable', 'Fraunces', ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.125rem;
+  --text-xs--font-weight: 500;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.375rem;
+  --text-sm--font-weight: 400;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.625rem;
+  --text-base--font-weight: 400;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.75rem;
+  --text-lg--font-weight: 600;
+  --text-xl: 1.625rem;
+  --text-xl--line-height: 2rem;
+  --text-xl--font-weight: 700;
+  --text-2xl: 2.125rem;
+  --text-2xl--line-height: 2.5rem;
+  --text-2xl--font-weight: 600;
+
+  --spacing: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 0 rgba(255,255,255,.03) inset, 0 8px 24px rgba(0,0,0,.35);
+  --shadow-pop: 0 16px 48px rgba(0,0,0,.55);
+  --shadow-panic-glow: 0 0 0 6px rgba(255,122,89,.16), 0 10px 32px rgba(255,122,89,.32);
+  --shadow-accent-glow: 0 0 0 1px rgba(95,211,166,.25), 0 12px 40px rgba(95,211,166,.12);
+  --ease-out: cubic-bezier(.2,.8,.2,1);
+  --ease-calm: cubic-bezier(.45,0,.25,1);
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}
+
+:root {
+  color-scheme: dark;
+  --content-max: 720px;
+  --content-wide-max: 1080px;
+  --gutter-mobile: 16px;
+  --gutter-desktop: 32px;
+  --header-height: 56px;
+  --tabbar-height: 64px;
+  --sidebar-width: 264px;
+  --sidebar-collapsed: 72px;
+  --touch-min: 48px;
+  --panic-fab-size: 64px;
+  --panic-hero-size: 200px;
+  --safe-bottom: env(safe-area-inset-bottom);
+  --counter-size: clamp(72px, 18vw, 112px);
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --duration-slow: 420ms;
+  --duration-breath-in: 4000ms;
+  --duration-breath-hold: 4000ms;
+  --duration-breath-out: 6000ms;
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-tabbar: 20;
+  --z-fab: 30;
+  --z-sheet: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  --z-panic: 70;
+}
+
+html { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); font-size: 100%; -webkit-text-size-adjust: 100%; }
+body { font-size: var(--text-base); line-height: var(--text-base--line-height); min-height: 100dvh; }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; border-radius: 4px; }
+.tabular { font-variant-numeric: tabular-nums lining-nums; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+@media (prefers-contrast: more) { :root { --color-text-muted: var(--color-text); --color-text-subtle: var(--color-text-muted); --color-border: var(--color-border-input); } }
