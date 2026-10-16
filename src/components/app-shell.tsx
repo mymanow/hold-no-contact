@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { HideOn } from "@/components/hide-on";
 import { NavLinks } from "@/components/nav-links";
 import { PanicButton } from "@/components/panic-button";
 import { PanicShortcut } from "@/components/panic-shortcut";
@@ -31,7 +32,11 @@ export function AppShell({ children, sidebarExtra }: { children: ReactNode; side
         <main className="flex-1">{children}</main>
       </div>
 
-      <PanicButton variant="fab" className="lg:hidden" />
+      {/* Sur les écrans avec un champ de saisie en bas, le FAB couvrirait le bouton Envoyer :
+          ces écrans ont leur propre accès à la Panic Room dans l'en-tête. */}
+      <HideOn paths={["/app/unsent", "/app/coach", "/design/unsent"]}>
+        <PanicButton variant="fab" className="lg:hidden" />
+      </HideOn>
 
       <nav
         aria-label="Navigation"

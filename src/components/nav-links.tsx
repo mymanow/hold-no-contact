@@ -11,7 +11,7 @@ export function NavLinks({ variant }: { variant: "sidebar" | "tabbar" }) {
   if (variant === "tabbar") {
     return (
       <ul className="grid grid-cols-5" style={{ height: "var(--tabbar-height)" }}>
-        {NAV.map((item) => {
+        {NAV.filter((item) => !("sidebarOnly" in item)).map((item) => {
           const active = isActive(item.href);
           return (
             <li key={item.href}>

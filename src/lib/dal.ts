@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
+import { decryptField } from "@/lib/crypto";
 import { createClient } from "@/lib/supabase/server";
 import type { Period } from "@/lib/streak";
 
@@ -73,3 +74,21 @@ export async function requireActiveUser() {
   if (!periods.some((p) => p.endedAt === null)) redirect("/onboarding/rules");
   return { profile, periods };
 }
+
+export type UnsentMessage = { id: string; body: string; createdAt: string };
+
+/** Messages « Text Your Ex (But Don't) », déchiffrés côté serveur, du plus ancien au plus récent. */
+export const getUnsentMessages = cache(async (limit = 200): Promise<UnsentMessage[]> => {
+  const user = await getUser();
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("unsent_messages")
+    .select("id, body_enc, key_version, created_at")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  if (error) throw new Error(`Lecture des messages impossible : ${error.message}`);
+  return (data ?? [])
+    .map((m) => ({ id: m.id, body: decryptField(m.body_enc, m.key_version), createdAt: m.created_at }))
+    .reverse();
+});
