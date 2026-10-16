@@ -141,6 +141,14 @@ Ajout rapide (en tête de S11) :
 
 ## Primitives (base : Radix / shadcn/ui, restylés avec les tokens)
 
+Déjà construits dans `src/components/` et visibles sur la route `/design` :
+- `PanicButton` : variantes fab, sidebar et inline ;
+- `StreakCounter` : états J0, en cours et objectif atteint ;
+- `IckCard` : 4 catégories, variante compacte et état vide ;
+- les boutons.
+
+Radix arrivera avec les menus et les feuilles de l'Ick List (M4). Rapport de contraste : `docs/replica/contrast-report.txt`.
+
 | composant | variants | états obligatoires | notes |
 | --- | --- | --- | --- |
 | Button | primary (accent), secondary (surface-raised + border), ghost, danger | default, hover, active, focus-visible, disabled, loading | sm 36 · md 44 · lg 52 ; garde son label pendant le chargement |
