@@ -10,10 +10,10 @@ Web app SaaS (mobile d'abord, desktop ensuite) pour tenir un **no contact** apr�
 | --- | --- | --- |
 | M0 — Socle | Next.js 16, Tailwind v4 + tokens, schéma Supabase (RLS), chiffrement applicatif, shell responsive | ✅ |
 | M1 — Tunnel d'auth | magic link + Google, callback, proxy de protection, onboarding en 2 étapes | ✅ |
-| M2 — Streak tracker | compteur (fuseau de l'utilisateur), record, cumul, paliers, Reset & Reflect atomique, historique | ✅ |
-| M3 — Panic Room | version statique (respiration, ressources d'aide) — reste : red flags épinglés, liens vers les outils, journal des envies | 🟡 |
-| M4 — Ick List | table prête, écran à venir | ⏳ |
-| M5 — Text Your Ex (But Don't) | table prête, écran à venir | ⏳ |
+| M2 — Streak tracker | compteur (fuseau de l'utilisateur), record, cumul, paliers, Reset & Reflect en modale de confirmation, historique | ✅ |
+| M3 — Panic Room | respiration guidée 4-4-6, intensité de l'envie, ancrage 5-4-3-2-1, minuteur 10 min, alternatives, « J'ai tenu » journalisé, ressources d'aide — reste : Ick List épinglée, Sam | ✅ |
+| M4 — Ick List | table et composant `IckCard` prêts, écran à venir | ⏳ |
+| M5 — Text Your Ex (But Don't) | faux chat, messages interceptés et chiffrés, suppression, réessai, question après envoi | ✅ |
 | M6 — Coach Sam (OpenAI) | tables prêtes | ⏳ |
 | M7 — Paiements Stripe | tables prêtes | ⏳ |
 | M8 — Check-in + notifications | tables prêtes | ⏳ |
@@ -74,9 +74,9 @@ src/
     login/                 magic link + Google
     auth/                  callback OAuth / magic link, déconnexion
     onboarding/            S01 profil · S02 règles et date du dernier contact
-    app/                   espace connecté : accueil (compteur), reset, progrès, profil
+    app/                   espace connecté : accueil (compteur + modale de reset), reset, unsent (faux chat), progrès, profil
     panic/                 Panic Room, publique et statique (s'ouvre même déconnecté)
-    design/                banc d'essai des composants (données fictives)
+    design/                banc d'essai des composants et du faux chat (données et actions fictives)
   components/              shell responsive, compteur, icônes
   lib/
     dal.ts                 accès aux données (session, profil, périodes)
@@ -102,7 +102,8 @@ docs/replica/              recon, matrice de features, architecture, specs compo
 ## Vérifications faites
 
 - Migration exécutée sur PostgreSQL 16 : reset atomique OK ; isolation RLS entre deux utilisateurs OK ; un utilisateur ne peut pas modifier son propre plan.
-- `npm run lint`, `npm run typecheck`, `npm test` (13 tests) et `npm run build` passent.
+- `npm run lint`, `npm run typecheck`, `npm test` (16 tests) et `npm run build` passent.
+- Parcours testés dans un navigateur headless à 390 et 1440 px, sans erreur console : respiration, ancrage, « J'ai tenu », envoi intercepté, échec et réessai, suppression, modale de reset (focus, Échap). Captures dans `docs/replica/clone-screens/`, journal dans `docs/replica/build-log.md`.
 - À faire avec Supabase lancé : le parcours complet inscription → onboarding → compteur → reset.
 
 ## Avertissements
