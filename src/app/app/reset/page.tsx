@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { requireActiveUser } from "@/lib/dal";
 import { computeStreak, pluralDays } from "@/lib/streak";
-import { ResetForm } from "./reset-form";
+import { ResetPageForm } from "./reset-page-form";
 
 export const metadata: Metadata = { title: "Reset & Reflect" };
 
@@ -16,7 +16,7 @@ export default function ResetPage() {
         <Kept />
       </Suspense>
       <div className="mt-8">
-        <ResetForm />
+        <ResetPageForm />
       </div>
     </div>
   );

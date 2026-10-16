@@ -1,18 +1,25 @@
 "use client";
 
-import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { CONTACT_KINDS, TRIGGER_TAGS } from "@/lib/reflect";
 import { resetStreak, type ResetState } from "./actions";
 
 const chip =
   "inline-flex min-h-11 cursor-pointer items-center rounded-pill border border-border-input px-4 text-sm has-[:checked]:border-accent has-[:checked]:bg-accent-soft has-[:checked]:text-accent-strong has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-focus";
 
-export function ResetForm() {
+/**
+ * Formulaire Reset & Reflect, utilisé dans la modale du dashboard et sur la page /app/reset (repli sans JS).
+ * onDone est appelé après un reset réussi ; onCancel affiche le bouton « Annuler ».
+ */
+export function ResetForm({ onDone, onCancel }: { onDone: () => void; onCancel: () => void }) {
   const [state, action, pending] = useActionState<ResetState, FormData>(resetStreak, {});
 
+  useEffect(() => {
+    if (state.ok) onDone();
+  }, [state.ok, onDone]);
+
   return (
-    <form action={action} className="space-y-7">
+    <form action={action} className="space-y-6">
       <fieldset>
         <legend className="label">Qu&apos;est-ce qui s&apos;est passé ?</legend>
         <div className="flex flex-wrap gap-2">
@@ -47,7 +54,7 @@ export function ResetForm() {
         <textarea
           id="reflection"
           name="reflection"
-          rows={4}
+          rows={3}
           maxLength={4000}
           className="field"
           placeholder="Ce que j'espérais, ce que j'ai ressenti après…"
@@ -62,11 +69,11 @@ export function ResetForm() {
 
       <div className="flex flex-col gap-3 sm:flex-row-reverse">
         <button type="submit" className="btn btn-primary btn-lg flex-1" disabled={pending}>
-          {pending ? "Un instant…" : "Repartir de zéro, sans rien perdre"}
+          {pending ? "Un instant…" : "Relancer mon compteur"}
         </button>
-        <Link href="/app" className="btn btn-ghost btn-lg">
+        <button type="button" onClick={onCancel} className="btn btn-ghost btn-lg">
           Annuler
-        </Link>
+        </button>
       </div>
     </form>
   );

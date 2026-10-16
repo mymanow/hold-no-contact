@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 import { StreakCounter, StreakCounterSkeleton } from "@/components/streak-counter";
 import { requireActiveUser } from "@/lib/dal";
 import { computeStreak } from "@/lib/streak";
+import { ResetDialog } from "./reset/reset-dialog";
 
 export const metadata: Metadata = { title: "Accueil" };
 
@@ -40,7 +42,25 @@ async function Dashboard() {
         </p>
       ) : null}
 
-      <StreakCounter stats={stats} />
+      <StreakCounter
+        stats={stats}
+        resetSlot={
+          <ResetDialog
+            kept={{ currentDays: stats.currentDays, recordDays: stats.recordDays, totalCleanDays: stats.totalCleanDays }}
+          />
+        }
+      />
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <Link href="/app/unsent" className="card block p-4 hover:bg-surface-raised">
+          <span className="font-semibold">Envie de lui écrire ?</span>
+          <span className="mt-1 block text-sm text-text-muted">Écris ici. Rien ne part, jamais.</span>
+        </Link>
+        <Link href="/app/progress" className="card block p-4 hover:bg-surface-raised">
+          <span className="font-semibold">Ton chemin</span>
+          <span className="mt-1 block text-sm text-text-muted">Toutes tes périodes, ton record, ton cumul.</span>
+        </Link>
+      </div>
 
       {active?.rules?.length ? <RulesCard rules={active.rules} /> : null}
     </>

@@ -1,11 +1,11 @@
-import Link from "next/link";
+import type { ReactNode } from "react";
 import { pluralDays, type StreakStats } from "@/lib/streak";
 
 /**
  * StreakCounter (S04) — spec : docs/replica/components.md.
  * Le cumul et le record restent visibles après un reset : la progression n'est jamais « perdue ».
  */
-export function StreakCounter({ stats }: { stats: StreakStats }) {
+export function StreakCounter({ stats, resetSlot }: { stats: StreakStats; resetSlot?: ReactNode }) {
   const { currentDays, targetDays, recordDays, totalCleanDays, nextMilestone, daysToNextMilestone, goalReached } =
     stats;
   const label = [
@@ -65,9 +65,11 @@ export function StreakCounter({ stats }: { stats: StreakStats }) {
               ? `Prochain palier : ${nextMilestone} j (dans ${pluralDays(daysToNextMilestone ?? 0)})`
               : "Tu as dépassé tous les paliers."}
         </span>
-        <Link href="/app/reset" className="whitespace-nowrap underline underline-offset-4 hover:text-text">
-          J&apos;ai eu un contact
-        </Link>
+        {resetSlot ?? (
+          <a href="/app/reset" className="whitespace-nowrap underline underline-offset-4 hover:text-text">
+            J&apos;ai eu un contact
+          </a>
+        )}
       </div>
     </section>
   );

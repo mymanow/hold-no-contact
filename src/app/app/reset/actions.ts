@@ -1,12 +1,12 @@
 "use server";
 
-import { redirect } from "next/navigation";
+import { refresh } from "next/cache";
 import { encryptField } from "@/lib/crypto";
 import { getUser } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { CONTACT_KINDS, TRIGGER_TAGS } from "@/lib/reflect";
 
-export type ResetState = { error?: string };
+export type ResetState = { error?: string; ok?: boolean };
 
 /**
  * Reset & Reflect (S13). La réflexion libre est chiffrée ici, puis la fonction SQL reset_streak()
@@ -33,5 +33,7 @@ export async function resetStreak(_prev: ResetState, formData: FormData): Promis
   });
 
   if (error) return { error: "Le compteur n'a pas pu être relancé. Réessaie dans un instant." };
-  redirect("/app");
+  // Rafraîchit le compteur affiché, que l'action vienne de la modale ou de la page /app/reset.
+  refresh();
+  return { ok: true };
 }

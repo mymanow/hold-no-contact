@@ -86,3 +86,14 @@
     transform: scale(0.78);
   }
 }
+
+/* Sheet : entrée douce par le bas (mobile) ou en fondu (desktop). Coupée par prefers-reduced-motion. */
+dialog.sheet[open] {
+  animation: sheet-in var(--duration-base) var(--ease-out);
+}
+@keyframes sheet-in {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}

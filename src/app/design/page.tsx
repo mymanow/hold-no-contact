@@ -5,6 +5,7 @@ import { AppShell } from "@/components/app-shell";
 import { IckCard, IckListEmpty } from "@/components/ick-card";
 import { PanicButton } from "@/components/panic-button";
 import { StreakCounter } from "@/components/streak-counter";
+import { ResetDialog } from "@/app/app/reset/reset-dialog";
 import { computeStreak, type Period } from "@/lib/streak";
 
 export const metadata: Metadata = { title: "Design system" };
@@ -99,7 +100,10 @@ async function CounterStates() {
   return STATES.map((s) => (
     <section key={s.title} aria-label={s.title}>
       <h2 className="mb-3 text-sm font-semibold text-text-muted">{s.title}</h2>
-      <StreakCounter stats={computeStreak(s.periods, NOW, "UTC")} />
+      <StreakCounter
+        stats={computeStreak(s.periods, NOW, "UTC")}
+        resetSlot={<ResetDialog kept={{ currentDays: 16, recordDays: 52, totalCleanDays: 76 }} />}
+      />
     </section>
   ));
 }
