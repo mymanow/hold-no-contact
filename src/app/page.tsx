@@ -4,7 +4,7 @@ export default function Landing() {
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center px-4 py-16 lg:px-8">
       <p className="kicker">No contact, un jour après l&apos;autre</p>
-      <h1 className="mt-3 font-display text-2xl lg:text-[44px] lg:leading-[52px]">
+      <h1 className="mt-3 font-display text-2xl lg:text-3xl">
         Arrête de lui écrire.
         <br />
         Commence à guérir.

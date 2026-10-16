@@ -39,10 +39,10 @@ export function Sheet({
       }}
       aria-labelledby="sheet-title"
       aria-describedby={description ? "sheet-description" : undefined}
-      className="sheet m-0 mt-auto w-full max-w-none overscroll-contain rounded-t-xl border border-border bg-surface p-0 text-text shadow-pop backdrop:bg-bg/75 md:m-auto md:max-w-[480px] md:rounded-xl"
+      className="sheet m-0 mt-auto w-full max-w-none overscroll-contain rounded-t-xl border border-border bg-surface p-0 text-text shadow-pop backdrop:bg-bg/75 md:m-auto md:max-w-[var(--sheet-max)] md:rounded-xl"
       style={{ maxHeight: "92dvh" }}
     >
-      <div className="px-5 pt-3 pb-[calc(24px+var(--safe-bottom))] md:px-7 md:pt-7 md:pb-7">
+      <div className="px-5 pt-3 pb-[calc(var(--spacing)*6+var(--safe-bottom))] md:px-7 md:pt-7 md:pb-7">
         <div aria-hidden className="mx-auto mb-4 h-1.5 w-10 rounded-pill bg-border-input md:hidden" />
         <h2 id="sheet-title" className="font-display text-lg font-semibold">
           {title}

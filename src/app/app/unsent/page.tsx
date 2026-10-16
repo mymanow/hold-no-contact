@@ -12,7 +12,7 @@ export default function UnsentPage() {
         <div className="flex h-[calc(100dvh-var(--tabbar-height))] flex-col lg:h-dvh" aria-busy>
           <div className="h-16 border-b border-border bg-surface" />
           <div className="flex-1" />
-          <div className="h-[72px] border-t border-border bg-surface" />
+          <div className="h-[var(--composer-height)] border-t border-border bg-surface" />
         </div>
       }
     >

@@ -20,7 +20,7 @@ export function PanicButton({ variant, className = "" }: { variant: Variant; cla
         style={{
           width: "var(--panic-fab-size)",
           height: "var(--panic-fab-size)",
-          bottom: "calc(var(--tabbar-height) + 16px + var(--safe-bottom))",
+          bottom: "calc(var(--tabbar-height) + var(--spacing) * 4 + var(--safe-bottom))",
         }}
       >
         <AlertIcon width={28} height={28} />

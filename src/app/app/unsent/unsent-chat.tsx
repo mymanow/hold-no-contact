@@ -219,7 +219,8 @@ export function UnsentChat({ initial, exLabel, timeZone, send = sendUnsent, remo
             onKeyDown={onKeyDown}
             rows={1}
             maxLength={MAX_UNSENT_LENGTH}
-            placeholder={`Écris à ${name}…`}
+            // Surnom long : texte indicatif générique, sinon le champ (dimensionné sur son contenu) gonfle sur 3 lignes
+            placeholder={name.length <= 16 ? `Écris à ${name}…` : "Écris ton message…"}
             className="field max-h-40 min-h-12 flex-1 resize-none py-3 field-sizing-content"
             autoComplete="off"
             enterKeyHint="send"

@@ -15,7 +15,7 @@ o+=[f"  --ease-out: {t['motion']['ease']};",f"  --ease-calm: {t['motion']['ease-
 o+=[f"  --breakpoint-md: {L['breakpoint-md']/16:g}rem;",f"  --breakpoint-lg: {L['breakpoint-lg']/16:g}rem;",f"  --breakpoint-xl: {L['breakpoint-xl']/16:g}rem;","}",""]
 c=t["type"]["counter"]
 o+=[":root {","  color-scheme: dark;"]
-for k in ["content-max","content-wide-max","gutter-mobile","gutter-desktop","header-height","tabbar-height","sidebar-width","sidebar-collapsed","touch-min","panic-fab-size","panic-hero-size"]:
+for k in ["content-max","content-wide-max","gutter-mobile","gutter-desktop","header-height","tabbar-height","sidebar-width","sidebar-collapsed","touch-min","panic-fab-size","panic-hero-size","sheet-max","composer-height"]:
     o.append(f"  --{k}: {L[k]}px;")
 o+=[f"  --safe-bottom: {L['safe-area-bottom']};",f"  --counter-size: {c['size']};"]
 o+=[f"  --duration-{k}: {t['motion'][k]};" for k in ["fast","base","slow","breath-in","breath-hold","breath-out"]]

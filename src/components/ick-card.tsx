@@ -34,7 +34,7 @@ export function IckCard({ category, body, meta, pinned = false, actions, variant
   const compact = variant === "compact";
 
   return (
-    <article className={`relative overflow-hidden rounded-lg border border-border bg-surface ${compact ? "p-3.5 pl-[18px]" : "p-4 pl-5"}`}>
+    <article className={`relative overflow-hidden rounded-lg border border-border bg-surface ${compact ? "p-3.5 pl-4.5" : "p-4 pl-5"}`}>
       <span aria-hidden className={`absolute inset-y-0 left-0 w-1 ${c.bar}`} />
       <h3 className="sr-only">
         {c.label}

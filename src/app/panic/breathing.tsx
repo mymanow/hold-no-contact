@@ -53,7 +53,7 @@ export function Breathing({ onStart }: { onStart?: () => void }) {
           className="absolute inset-0 rounded-pill"
           style={{
             background: "radial-gradient(circle at 50% 45%, var(--color-panic-strong), var(--color-panic) 62%)",
-            boxShadow: "0 0 0 18px rgb(255 122 89 / 0.10), 0 0 0 40px rgb(255 122 89 / 0.05)",
+            boxShadow: "var(--shadow-panic-ring)",
             transform: `scale(${scale})`,
             transition: `transform ${running ? phase.seconds : 0.4}s var(--ease-calm)`,
           }}
@@ -61,13 +61,13 @@ export function Breathing({ onStart }: { onStart?: () => void }) {
         <span className="relative flex flex-col items-center gap-1 px-6">
           {running ? (
             <>
-              <span className="font-display text-[26px] leading-tight font-semibold">{phase.label}</span>
+              <span className="font-display text-xl leading-tight font-semibold">{phase.label}</span>
               <span className="text-2xl font-bold tabular" aria-hidden>
                 {state.left}
               </span>
             </>
           ) : (
-            <span className="font-display text-[22px] leading-tight font-semibold">
+            <span className="font-display text-lg leading-tight font-semibold">
               {state.status === "paused"
                 ? "Reprendre"
                 : state.status === "finished"

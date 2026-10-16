@@ -56,6 +56,9 @@
   --text-2xl: 2.125rem;
   --text-2xl--line-height: 2.5rem;
   --text-2xl--font-weight: 600;
+  --text-3xl: 2.75rem;
+  --text-3xl--line-height: 3.25rem;
+  --text-3xl--font-weight: 600;
 
   --spacing: 4px;
   --radius-sm: 8px;
@@ -67,6 +70,7 @@
   --shadow-pop: 0 16px 48px rgba(0,0,0,.55);
   --shadow-panic-glow: 0 0 0 6px rgba(255,122,89,.16), 0 10px 32px rgba(255,122,89,.32);
   --shadow-accent-glow: 0 0 0 1px rgba(95,211,166,.25), 0 12px 40px rgba(95,211,166,.12);
+  --shadow-panic-ring: 0 0 0 18px rgba(255,122,89,.10), 0 0 0 40px rgba(255,122,89,.05);
   --ease-out: cubic-bezier(.2,.8,.2,1);
   --ease-calm: cubic-bezier(.45,0,.25,1);
   --breakpoint-md: 48rem;
@@ -87,6 +91,8 @@
   --touch-min: 48px;
   --panic-fab-size: 64px;
   --panic-hero-size: 200px;
+  --sheet-max: 480px;
+  --composer-height: 72px;
   --safe-bottom: env(safe-area-inset-bottom);
   --counter-size: clamp(72px, 18vw, 112px);
   --duration-fast: 120ms;

@@ -24,7 +24,7 @@ async function MiniStreak() {
   const s = computeStreak(periods, new Date(), profile.timezone);
   return (
     <div className="mx-1.5 mt-4 rounded-lg bg-surface-raised p-3.5">
-      <p className="font-display text-[30px] leading-none font-semibold tabular">J{s.currentDays}</p>
+      <p className="font-display text-2xl leading-none font-semibold tabular">J{s.currentDays}</p>
       {s.recordDays > 0 ? <p className="mt-1 text-xs text-text-muted">record {s.recordDays} j</p> : null}
     </div>
   );

@@ -44,7 +44,7 @@ export function ResetDialog({ kept }: { kept: Kept }) {
 
       <p
         role="status"
-        className={`fixed inset-x-4 z-[60] mx-auto max-w-md rounded-md bg-accent-soft px-4 py-3 text-sm font-semibold text-accent-strong shadow-pop transition-opacity bottom-[calc(var(--tabbar-height)+96px+var(--safe-bottom))] lg:bottom-6 ${
+        className={`fixed inset-x-4 z-[60] mx-auto max-w-md rounded-md bg-accent-soft px-4 py-3 text-sm font-semibold text-accent-strong shadow-pop transition-opacity bottom-[calc(var(--tabbar-height)+var(--panic-fab-size)+var(--spacing)*8+var(--safe-bottom))] lg:bottom-6 ${
           restarted ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >

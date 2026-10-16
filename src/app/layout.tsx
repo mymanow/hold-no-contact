@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import tokens from "../../design/tokens.json";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0F13",
+  themeColor: tokens.color.bg,
   colorScheme: "dark",
   viewportFit: "cover",
 };
