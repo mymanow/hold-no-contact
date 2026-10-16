@@ -1,9 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { AlertIcon } from "@/components/icons";
 import { NavLinks } from "@/components/nav-links";
+import { PanicButton } from "@/components/panic-button";
 import { PanicShortcut } from "@/components/panic-shortcut";
-
 
 /**
  * Shell responsive :
@@ -25,34 +24,14 @@ export function AppShell({ children, sidebarExtra }: { children: ReactNode; side
           <NavLinks variant="sidebar" />
         </nav>
         {sidebarExtra}
-        <Link
-          href="/panic"
-          className="halo mt-auto flex items-center justify-center gap-2.5 rounded-pill bg-panic font-bold text-on-panic hover:bg-panic-strong"
-          style={{ minHeight: 56 }}
-          title="Raccourci clavier : P"
-        >
-          <AlertIcon width={20} height={20} />
-          J&apos;ai besoin d&apos;aide
-          <kbd className="rounded-sm border border-on-panic/35 px-1.5 text-xs font-semibold">P</kbd>
-        </Link>
+        <PanicButton variant="sidebar" className="mt-auto" />
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
         <main className="flex-1">{children}</main>
       </div>
 
-      <Link
-        href="/panic"
-        aria-label="J'ai besoin d'aide : ouvrir la Panic Room"
-        className="halo fixed right-4 z-[30] grid place-items-center rounded-pill bg-panic text-on-panic lg:hidden"
-        style={{
-          width: "var(--panic-fab-size)",
-          height: "var(--panic-fab-size)",
-          bottom: "calc(var(--tabbar-height) + 16px + var(--safe-bottom))",
-        }}
-      >
-        <AlertIcon width={28} height={28} />
-      </Link>
+      <PanicButton variant="fab" className="lg:hidden" />
 
       <nav
         aria-label="Navigation"

@@ -1,0 +1,41 @@
+# Rapport de contraste WCAG — design/tokens.json
+# Généré par replica-design/contrast.py le 2026-10-16
+
+  AAA   16.26:1  text                     on bg                   
+  AAA   14.98:1  text                     on surface              
+  AAA   13.50:1  text                     on surface-raised       
+  AAA    8.96:1  text-muted               on bg                   
+  AAA    8.26:1  text-muted               on surface              
+  AAA    7.44:1  text-muted               on surface-raised       
+  AA     6.17:1  text-subtle              on bg                   
+  AA     5.68:1  text-subtle              on surface              
+  AAA    9.01:1  on-accent                on accent               
+  AAA   10.91:1  on-accent                on accent-strong        
+  AAA   10.41:1  accent                   on bg                   
+  AAA    9.59:1  accent                   on surface              
+  AAA    9.30:1  accent-strong            on accent-soft          
+  AAA    7.16:1  on-panic                 on panic                
+  AAA    8.91:1  on-panic                 on panic-strong         
+  AAA    9.34:1  panic-strong             on bg                   
+  AAA    7.73:1  panic-strong             on panic-soft           
+  AAA   13.46:1  text                     on panic-soft           
+  AAA   11.62:1  record                   on surface              
+  AAA    8.04:1  danger                   on surface              
+  AAA    8.41:1  on-danger                on danger               
+  AAA   10.57:1  warning                  on surface              
+  AAA    7.84:1  cat-red-flag             on cat-red-flag-soft    
+  AAA    8.42:1  cat-dealbreaker          on cat-dealbreaker-soft 
+  AAA    8.92:1  cat-ick                  on cat-ick-soft         
+  AAA    8.18:1  cat-reason               on cat-reason-soft      
+  AAA   13.66:1  text                     on cat-red-flag-soft    
+  AAA   13.92:1  text                     on cat-dealbreaker-soft 
+  AAA   12.64:1  text                     on cat-ick-soft         
+  AAA   13.67:1  text                     on cat-reason-soft      
+  PASS   3.80:1  border-input             on bg                   ui
+  PASS   3.50:1  border-input             on surface              ui
+  PASS  13.64:1  focus                    on bg                   ui
+  PASS  12.57:1  focus                    on surface              ui
+  PASS   7.50:1  panic                    on bg                   ui
+  PASS   8.64:1  accent                   on surface-raised       ui
+
+  36 pairs, 0 failing AA
